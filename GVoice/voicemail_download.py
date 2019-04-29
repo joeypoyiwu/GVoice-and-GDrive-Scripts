@@ -6,7 +6,7 @@ import sys
 conf = yaml.load(open('./config.yml'))
 email = conf['user']['email']
 pwd = conf['user']['password']
-dir = './voicemails'
+dir = conf['user']['dir']
 
 def voicemail_get():
     voice = Voice()
@@ -19,9 +19,9 @@ def creds_check():
 
     for k, v in conf.items():
         if v == None:
-            print("Please edit the config.yml file to include your email and password credentials.")
+            print("\nPlease edit the config.yml file to include your email and password credentials.")
         else:
             voicemail_get()
-            print("Success!")
+            print("\nSuccess!")
 
 creds_check()
