@@ -1,6 +1,6 @@
 # GVoice and GDrive Upload
 
-# Prerequisites
+## Prerequisites
 
 **MUST** have Python 3+ installed.
 
@@ -10,7 +10,7 @@
 
 For each folder in GDrive and GVoice, input your necessary values in the `config_template.yml` files.
 
-# EXAMPLE
+### EXAMPLE
 
 For `config_template.yml` in the folder `GDrive`:
 ```
@@ -28,7 +28,7 @@ user:
     password: email password
 ```
 
-# How To
+### How To
 
 Run `main.sh` to download all voicemails in your Google Voice account, and have it upload to your Google Drive account.
 
