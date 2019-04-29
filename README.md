@@ -4,9 +4,9 @@
 
 **MUST** have Python 3+ installed.
 
-- [PyGoogleVoice](https://github.com/pettazz/pygooglevoice) setup and installed.
-- [PyDrive](https://pypi.org/project/PyDrive/) setup and installed.
-- A `client_secrets.json` file for [PyDrive](https://pythonhosted.org/PyDrive/quickstart.html)
+1. [PyGoogleVoice](https://github.com/pettazz/pygooglevoice) setup and installed. Run `setup.py` upon download.
+2. [PyDrive](https://pypi.org/project/PyDrive/) setup and installed.
+3. A `client_secrets.json` file for [PyDrive](https://pythonhosted.org/PyDrive/quickstart.html)
 
 For each folder in GDrive and GVoice, input your necessary values in the `config_template.yml` files, and rename them to `config.yml` after editting:
 
@@ -79,6 +79,12 @@ gauth = GoogleAuth()
 # Create local webserver and auto handles authentication.
 gauth.LocalWebserverAuth()
 ```
+
+### KNOWN ISSUES
+
+Unfortunately, `pygooglevoice` is not officially supported by Google. [This link](https://github.com/pettazz/pygooglevoice/pull/40) aptly describes why accounts with 2FA enabled will not work.
+
+For `voicemail_download.py` to work properly, please **disable 2FA**.
 
 Contact:
 >[Email](joeywu99@gmail.com)
