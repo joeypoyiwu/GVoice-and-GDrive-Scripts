@@ -1,5 +1,5 @@
 folderid:
-  id:
+  id: #enter GDrive folder ID here
 directory:
-  dir:
-  title: 
+  dir: #enter directory where .mp3 files live here
+  title: #enter the name of the folder you want to make
