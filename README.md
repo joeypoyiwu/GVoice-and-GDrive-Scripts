@@ -34,7 +34,7 @@ Run `download.py` to download all voicemails in your Google Voice account in `.m
 
 You can specify a specific folder to upload the file to, or just upload it to your root directory.
 
-**Google Voice Voicemail Download** - Set directory to download the .mp3 files of voicemails to in `config_template.yml`, then run `voicemail_download.py`
+**Google Voice Voicemail Download** - Set directory to download the .mp3 files of voicemails to in `config_template.yml`, then run `download.py`
 
 **Google Drive Upload** - Set the directory to pull the .mp3 files of voicemails in `config_template.yml`, then run `upload.py`
 
@@ -82,7 +82,7 @@ gauth.LocalWebserverAuth()
 
 Unfortunately, `pygooglevoice` is not officially supported by Google. [This link](https://github.com/pettazz/pygooglevoice/pull/40) aptly describes why accounts with 2FA enabled will not work.
 
-For `voicemail_download.py` to work properly, please **disable 2FA**.
+For `download.py` to work properly, please **disable 2FA**.
 
 Contact:
 >[Email](joeywu99@gmail.com)
