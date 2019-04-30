@@ -25,6 +25,6 @@ def creds_check():
             print("\nPlease edit the config.yml file to include your email and password credentials.")
         else:
             voicemail_get()
-            print("\nSuccess!")
+            print("\nSuccess! Downloaded all voicemail files in account " + str(email))
 
 creds_check()
