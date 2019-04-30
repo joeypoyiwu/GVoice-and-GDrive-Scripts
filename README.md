@@ -34,9 +34,11 @@ Run `download.py` to download all voicemails in your Google Voice account in `.m
 
 You can specify a specific folder to upload the file to, or just upload it to your root directory.
 
-**Google Voice Voicemail Download** - Set directory to download the .mp3 files of voicemails to in `config_template.yml`, then run `download.py`
+**Google Voice Voicemail Download** - Set directory to download the .mp3 files of voicemails to in `config_template.yml`, rename it to `config.yml`, then run `download.py`
 
-**Google Drive Upload** - Set the directory to pull the .mp3 files of voicemails in `config_template.yml`, then run `upload.py`
+**Google Drive Upload** - Set the directory to pull the .mp3 files of voicemails in `config_template.yml`, rename it to `config.yml`, then run `upload.py`
+
+> Make sure to put the `client_secrets.json` file from authenticating with PyDrive in the same folder as `upload.py`
 
 The current `upload.py` file authenticates the user, and saves the credentials and refreshes the tokens if they are expired.
 
