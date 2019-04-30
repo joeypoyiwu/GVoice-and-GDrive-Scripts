@@ -3,13 +3,14 @@ from pydrive.drive import GoogleDrive
 import yaml
 import glob, os
 
+#opens the config.yml file, and passes the variables over here as a dict
 conf = yaml.load(open('./config.yml'))
 folder = conf['folderid']['id']
 dir = conf['directory']['dir']
 title = conf['directory']['title']
 
+#Authentication for G Drive API with PyDrive
 def auth():
-    #Authentication for G Drive API with PyDrive
     print("Authenticating...")
     gauth = GoogleAuth()
     # Try to load saved client credentials
@@ -30,21 +31,25 @@ def auth():
     gauth.SaveCredentialsFile("mycreds.txt")
     drive = GoogleDrive(gauth)
 
-#Upload file to specified folder. Specific folder ID can be found with 'folderid.py'
+    #Upload file to specified folder. Specific folder ID can be found with 'folderid.py'
     def upload_voicemail(fid):
 
+        #Print reminder if no directory variable was set in config.yml
         if dir == None:
             print("\n********** No directory path set! Please set directory with voicemail mp3's in the config.yml file. **********")
+        #Uploads mp3 files to default GDrive root if no folderid was set in config.yml
         elif fid == None:
             os.chdir(dir)
+            #this will look for any files in the dir variable with the extension .mp3, and upload each.
             for mp3 in glob.glob("*.mp3"):
                 f = (dir + str("/"+mp3))
-                print ("Uploading" + str(f) + " To default root G Drive directory...")
+                print ("Uploading " + str(f) + " to default root G Drive directory...")
                 #If the fid value does not exist, the file will upload to the default GDrive directory
                 file = drive.CreateFile()
                 file.SetContentFile(f)
                 file.Upload()
                 print("\nUploaded!\n")
+        #If folderid and dir variables are present in config.yml, voicemails will be uploaded to specified GDrive folder
         else:
             os.chdir(dir)
             for mp3 in glob.glob("*.mp3"):
@@ -63,7 +68,7 @@ def auth():
         print("Creating folder...\n")
         folder = drive.CreateFile(folder_metadata)
         folder.Upload()
-        print("Folder created! \n")
+        print("Folder created! \nBe sure to enter this folder ID into your config.yml file!")
 
         #Gets parent folder ID. Make sure to put the parent ID of the folder you want into config.yml
         file_list = drive.ListFile({'q': "'root' in parents and trashed=false"}).GetList()
@@ -72,6 +77,7 @@ def auth():
         fid = input("\nEnter the folder ID of the folder you want to upload to: ")
         upload_voicemail(fid)
 
+    #prompts user to either upload files to a specific folder or not. It will them prompt the user to create a folder if they do not have a folderid.
     def folderid_check():
 
         fid = folder

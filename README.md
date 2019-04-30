@@ -4,7 +4,7 @@
 
 **MUST** have Python 3+ installed.
 
-1. [PyGoogleVoice](https://github.com/pettazz/pygooglevoice) setup and installed. Run `setup.py` upon download.
+1. [PyGoogleVoice](https://github.com/pettazz/pygooglevoice) setup and installed. You can do `pip install pygooglevoice`, download this [repo](https://github.com/pettazz/pygooglevoice), and move it over to the `googlevoice` folder under your Python directory.
 2. [PyDrive](https://pypi.org/project/PyDrive/) setup and installed.
 3. A `client_secrets.json` file for [PyDrive](https://pythonhosted.org/PyDrive/quickstart.html)
 
@@ -30,11 +30,9 @@ user:
 
 ### How To
 
-Run `main.sh` to download all voicemails in your Google Voice account, and have it upload to your Google Drive account.
+Run `download.py` to download all voicemails in your Google Voice account in `.mp3` format, and then run `upload.py` to upload the files to your Google Drive account.
 
 You can specify a specific folder to upload the file to, or just upload it to your root directory.
-
-If you would like to run both separately:
 
 **Google Voice Voicemail Download** - Set directory to download the .mp3 files of voicemails to in `config_template.yml`, then run `voicemail_download.py`
 
