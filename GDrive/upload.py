@@ -11,6 +11,7 @@ title = conf['directory']['title']
 
 #Authentication for G Drive API with PyDrive
 def auth():
+    
     print("Authenticating...")
     gauth = GoogleAuth()
     # Try to load saved client credentials
